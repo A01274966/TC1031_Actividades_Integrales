@@ -1,0 +1,151 @@
+001 Bulbasaur 0.7 6.9 Planta
+002 Ivysaur 1.0 13.0 Planta
+003 Venusaur 2.0 100.0 Planta
+004 Charmander 0.6 8.5 Fuego
+005 Charmeleon 1.1 19.0 Fuego
+006 Charizard 1.7 90.5 Fuego
+007 Squirtle 0.5 9.0 Agua
+008 Wartortle 1.0 22.5 Agua
+009 Blastoise 1.6 85.5 Agua
+010 Caterpie 0.3 2.9 Bicho
+011 Metapod 0.7 9.9 Bicho
+012 Butterfree 1.1 32.0 Bicho
+013 Weedle 0.3 3.2 Bicho
+014 Kakuna 0.3 10.0 Bicho
+015 Beedrill 1.0 29.5 Bicho
+016 Pidgey 0.3 1.8 Normal
+017 Pidgeotto 1.1 30.0 Normal
+018 Pidgeot 1.5 39.5 Normal
+019 Rattata 0.3 3.5 Normal
+020 Raticate 0.7 18.5 Normal
+021 Spearow 0.3 2.0Normal
+022 Fearow Normal
+023 Ekans Veneno
+024 Arbok Veneno
+025 Pikachu Electrico
+026 Raichu Electrico
+027 Sandshrew Tierra
+028 Sandlash Tierra
+029 Nidoran♀ Veneno
+030 Nidorina Veneno
+031 Nidoqueen Veneno
+032 Nidoran♂ Veneno
+033 Nidorino Veneno
+034 Nidoking Veneno
+035 Clefairy Hada
+036 Clefable Hada
+037 Vulpix Fuego
+038 Ninetales Fuego
+039 Jigglypuff Normal
+040 Wigglytuff Normal
+041 Zubat Veneno
+042 Golbat Veneno
+043 Oddish Planta
+044 Gloom Planta
+045 Vileplume Planta
+046 Paras Bicho
+047 Parasect Bicho
+048 Venonat Bicho
+049 Venomoth Bicho
+050 Diglett Tierra
+051 Dugtrio Tierra
+052 Meowth Normal
+053 Persian Normal
+054 Psyduck Agua
+055 Golduck Agua
+056 Mankey Lucha
+057 Primeape Lucha
+058 Growlithe Fuego
+059 Arcanine Fuego
+060 Poliwag Agua
+061 Poliwhirl Agua
+062 Poliwrath Agua
+063 Abra Psiquico
+064 Kadabra Psiquico
+065 Alakazam Psiquico
+066 Machop Lucha
+067 Machoke Lucha
+068 Machamp Lucha
+069 Bellsprout Planta
+070 Weepinbell Planta
+071 Victreebel Planta
+072 Tentacool Agua
+073 Tentacruel Agua
+074 Geodude Roca
+075 Graveler Roca
+076 Golem Roca
+077 Ponyta Fuego
+078 Rapidash Fuego
+079 Slowpoke Psiquico
+080 Slowbro Psiquico
+081 Magnemite Electrico
+082 Magneton Electrico
+083 Farfetch'd Normal
+084 Doduo Normal
+085 Dobrio Normal
+086 Seel Agua
+087 Dewgong Agua
+088 Grimer Veneno
+089 Muk Veneno
+090 Shellder Agua
+091 Cloyster Agua
+092 Gastly Fantasma
+093 Haunter Fantasma
+094 Gengar Fantasma
+095 Onix Roca
+096 Drowzee Psiquico
+097 Hypno Psiquico
+098 Krabby Agua
+099 Kingler Agua
+100 Voltorb Electrico
+101 Electrode Electrico
+102 Exeggcute Psiquico
+103 Exeggutor Psiquico
+104 Cubone Tierra
+105 Marowak Tierra
+106 Hitmonlee Lucha
+107 Hitmonchan Lucha
+108 Lickitung Normal
+109 Koffing Veneno
+110 Weezing Veneno
+111 Rhyhorn Tierra
+112 Rhydon Tierra
+113 Chansey Normal
+114 Tangela Planta
+115 Kangaskhan Normal
+116 Horsea Agua
+117 Seadra Agua
+118 Goldeen Agua
+119 Seaking Agua
+120 Staryu Agua
+121 Starmie Agua
+122 Mr.mime Psiquico
+123 Scyther Bicho
+124 Jynx Hielo
+125 Electabuzz Electrico
+126 Magmar Fuego
+127 Pinsir Bicho
+128 Tauros Normal
+129 Magikarp Agua
+130 Gyarados Agua
+131 Lapras Agua
+132 Ditto Normal
+133 Eevee Normal
+134 Vaporeon Agua
+135 Jolteon Electrico
+136 Flareon Fuego
+137 Porygon Normal
+138 Omanyte Roca
+139 Omastar Roca
+140 Kabuto Roca
+141 Kabutops Roca
+142 Aerodactyl Roca
+143 Snorlax Normal
+144 Articuno Hielo
+145 Zapdos Electrico
+146 Moltres Fuego
+147 Dratini Dragon
+148 Dragonair Dragon
+149 Dragonite Dragon
+150 Mewtwo Psiquico
+151 Mew Psiquico
