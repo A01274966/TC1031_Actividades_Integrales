@@ -18,7 +18,7 @@
 018 Pidgeot 1.5 39.5 Normal
 019 Rattata 0.3 3.5 Normal
 020 Raticate 0.7 18.5 Normal
-021 Spearow 0.3 2.0Normal
+021 Spearow 0.3 2.0 Normal
 022 Fearow Normal
 023 Ekans Veneno
 024 Arbok Veneno
