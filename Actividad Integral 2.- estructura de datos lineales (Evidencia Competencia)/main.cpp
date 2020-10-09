@@ -14,6 +14,7 @@
 //----------------------------------
 
 #include "pokemon.h"
+#include "list.h"
 
 
 
@@ -119,7 +120,7 @@ vector<Pokemon> bubblePeso(vector<Pokemon> &v)
 }
 
 void busq(vector<Pokemon> &v, string tipo) {
-  ofstream myfilein ("a.out");
+  ofstream myfilein ("datos_pokedex.txt");
 	for (int i = 0; i < v.size(); i++) {
     if (myfilein.is_open())
     {
@@ -137,10 +138,19 @@ void busq(vector<Pokemon> &v, string tipo) {
   }
 	myfilein.close();
 }
+int numeroPokemon;
+string nombrePokemon;
+string tipoPokemon;
+float alturaPokemon;
+float pesoPokemon;
 
 vector<Pokemon> list_pokemon;
 vector<Pokemon> list_pokemon_bubble;
 
+List<Pokemon> lista;
+
+
+ofstream myfilein ("datos_pokedex.txt");
 int main() 
 {
   int opcion;
@@ -167,6 +177,16 @@ int main()
     }
     myfileout.close();
   }
+
+  if (myfileout.is_open()) {
+  while (myfileout>>numeroPokemon>>nombrePokemon>>tipoPokemon>>nombrePokemon>>numeroPokemon){
+    cout<< numeroPokemon << " " << nombrePokemon << " " << tipoPokemon << " " << alturaPokemon << " " << pesoPokemon << " " << endl;
+
+    Pokemon pokemon_list(numeroPokemon,nombrePokemon,tipoPokemon,alturaPokemon, pesoPokemon);
+    lista.add(pokemon_list);
+  }
+  }
+
   
    cout<<"__ ___         _            __     ___      ___"<<endl;
    cout<<"| '_  \\       | |           | |    \\  \\    /  /"<<endl;
@@ -184,7 +204,6 @@ int main()
    cout<<"\n";
    cin>>opcion;
 
-  ofstream myfilein ("a.out");
 
    switch(opcion)
    {
@@ -211,7 +230,7 @@ int main()
       sleep(1);
       cout<<"."<<endl;
       sleep(1);
-      cout<<"Datos impresos satisfactoriamente en a.out"<<endl;
+      cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
       break;
      case 2:
       int opcioncaso2;
@@ -249,7 +268,7 @@ int main()
           sleep(1);
           cout<<"."<<endl;
           sleep(1);
-          cout<<"Datos impresos satisfactoriamente en a.out"<<endl;   
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;   
           break;
         case 2:
           list_pokemon_bubble = bubbleNombre(list_pokemon);
@@ -275,7 +294,7 @@ int main()
           sleep(1);
           cout<<"."<<endl;
           sleep(1);
-          cout<<"Datos impresos satisfactoriamente en a.out"<<endl; 
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl; 
           break;
         case 3:
           list_pokemon_bubble = bubbleTipo(list_pokemon);
@@ -301,7 +320,7 @@ int main()
           sleep(1);
           cout<<"."<<endl;
           sleep(1);
-          cout<<"Datos impresos satisfactoriamente en a.out"<<endl;     
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;     
           break;
         case 4:
           list_pokemon_bubble = bubbleAltura(list_pokemon);
@@ -327,7 +346,7 @@ int main()
           sleep(1);
           cout<<"."<<endl;
           sleep(1);
-          cout<<"Datos impresos satisfactoriamente en a.out"<<endl;     
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;     
           break;
         case 5:
           list_pokemon_bubble = bubblePeso(list_pokemon);
@@ -353,7 +372,7 @@ int main()
           sleep(1);
           cout<<"."<<endl;
           sleep(1);
-          cout<<"Datos impresos satisfactoriamente en a.out"<<endl;  
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;  
           break;
         default:
           break;
@@ -379,48 +398,184 @@ int main()
       {
         case 1:
           busq(list_pokemon, "Agua");
+          cout<<"\n";
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 2:
           busq(list_pokemon, "Fuego");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 3:
           busq(list_pokemon, "Planta");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 4:
           busq(list_pokemon, "Bicho");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 5:
           busq(list_pokemon, "Normal");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 6:
           busq(list_pokemon, "Veneno");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 7:
           busq(list_pokemon, "Electrico");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 8:
           busq(list_pokemon, "Tierra");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 9:
           busq(list_pokemon, "Hada");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 10:
           busq(list_pokemon, "Lucha");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 11:
           busq(list_pokemon, "Psiquico");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 12:
           busq(list_pokemon, "Roca");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 13:
           busq(list_pokemon, "Fantasma");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 14:
          busq(list_pokemon, "Hielo");
+         cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 15:
           busq(list_pokemon, "Dragon");
+          cout<<"Imprimiendo datos"<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"."<<endl;
+          sleep(1);
+          cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break; 
         default:
           break;         
