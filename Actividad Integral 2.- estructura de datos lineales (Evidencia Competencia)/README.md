@@ -56,15 +56,15 @@ Ordenar datos de pokedex por atributos -> Altura -> Resultado: 0.3 Mts, 0.3 Mts,
 
 Ordenar datos de pokedex por atributos -> Nombre -> Resultado: Beedrill, Blastoise, Bulbasaur, Butterfree, Caterpie, Charizard, Charmander, Charmeleon, Ivysaur, Kakuna, Metapod, Pidgeot, Pidegeotto, Pidgey, Raticate, Rattata, Squirtle, Venasaur, Wartortle, Weedle
 
-##Prueba 3:
+### Prueba 3:
 
 Buscar objetos por tipo de Pokemon -> Fuego -> Resultado: Charmander, Carmeleon, Charizard
 
-##Prueba 4:
+### Prueba 4:
 
 Buscar objetos por tipo de Pokemon -> Hada -> No hay resultados
 
-#Prueba 5:
+### Prueba 5:
 
 Salir -> Resultado: Hasta luego entrenador!
 
