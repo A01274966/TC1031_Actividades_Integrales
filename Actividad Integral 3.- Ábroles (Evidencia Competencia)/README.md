@@ -1,4 +1,4 @@
-# Actividad Integral 2
+# Actividad Integral 3
 ## Marco contextual 
 Dentro del videojuego de Pokemon existe una herramienta muy famosa y muy util llamada la Pokedex. Una Pokedex es una enciclopedia portátil de alta tecnología que los Entrenadores Pokémon llevan consigo para registrar las fichas de todas las diversas especies Pokémon con las que se encuentran durante su viaje. La pokedex registra los datos generales de los pokemones tales como el nombre, numero de pokemon, peso, altura, tipo de pokemon, etc.
 ## Funcionamiento
@@ -46,15 +46,15 @@ Basado en la busqueda secuencial. Consiste en una busqueda comenzando en el prim
 
 El algoritmo seía O(n) en el peor de los casos. El algoritmo recorrera una lista hasta llegar al ultimo elemnto por medio de un ciclo while y añadira un indice mas.Por lo mismo seria O(n) ya que se recorre n elementos de la lista en el peor de los casos. Igualmente se tiene un addFirst que añadira un valor como primer elemento de la lista. Este tendra una complejidad de O(1).
 
-###push()
+### push()
 
 El algoritmo agrega un nuevo elemento al arbol, este lo hace en orden en especifico que es de derecha a izquierda y por niveles de forma acendente a decendente empezando por la raiz. Igualmente el heap nos dice que el padre debe de ser menor a los hijos, de esta forma si el nuevo elemento es mayor a un padre se hara un swap. El nivel de complejidad seria de O(log n) para el peor de los casos.
 
-###busqHeap()
+### busqHeap()
 
 Basado en la busqueda secuencial. Consiste en una busqueda comenzando en el primer ítem de la lista, simplemente nos trasladamos de un numero a otro, siguiendo el orden secuencial subyacente hasta que encontremos lo que buscamos o nos quedemos sin items. Su complejidad temporal es O(n) para el peor de los casos.
 
-###toString
+### toString()
 
 El algoritmo recorre toda la informacion del arbol para almacenar un string por cada recorrido del ciclo. Ya que se reccore todo la informacion su analisis de complejidad seria de O(n).
 
