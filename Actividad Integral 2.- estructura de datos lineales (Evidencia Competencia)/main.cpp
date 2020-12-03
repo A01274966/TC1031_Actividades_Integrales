@@ -8,140 +8,20 @@
 
 #include "pokemon.h"
 #include "list.h"
-
-
+#include "sorts.h"
 
 using namespace std;
 
-size_t split(const string &txt, vector<string> &strs, char ch)
-{
-    size_t pos = txt.find( ch );
-    size_t initialPos = 0;
-    strs.clear();
+vector<Pokemon> vector_pokemon;
+vector<Pokemon> vector_pokemon_bubble;
 
-    while( pos != string::npos ) {
-        strs.push_back( txt.substr( initialPos, pos - initialPos ) );
-        initialPos = pos + 1;
+List<Pokemon> lista;
 
-        pos = txt.find( ch, initialPos );
-    }
-    strs.push_back( txt.substr( initialPos, min( pos, txt.size() ) - initialPos + 1 ) );
-
-    return strs.size();
-}
-
-void swap(vector<Pokemon> &v, int i, int j)
-{
-  Pokemon aux = v[i];
-  v[i]= v[j];
-  v[j] = aux;
-}
-
-vector<Pokemon> bubbleNumero(vector<Pokemon> &v)
-{
-	for (int i = v.size() - 1; i > 0; i--)
-  {
-		for (int j = 0; j < i; j++)
-    {
-			if (v[j].numeroPokemon > v[j + 1].numeroPokemon)
-      {
-				swap(v, j, j + 1);
-			}
-		}
-	}
-	return v;
-}
-
-vector<Pokemon> bubbleNombre(vector<Pokemon> &v)
-{
-	for (int i = v.size() - 1; i > 0; i--)
-  {
-		for (int j = 0; j < i; j++)
-    {
-			if (v[j].nombrePokemon > v[j + 1].nombrePokemon)
-      {
-				swap(v, j, j + 1);
-			}
-		}
-	}
-	return v;
-}
-
-vector<Pokemon> bubbleTipo(vector<Pokemon> &v)
-{
-	for (int i = v.size() - 1; i > 0; i--)
-  {
-		for (int j = 0; j < i; j++)
-    {
-			if (v[j].tipoPokemon > v[j + 1].tipoPokemon)
-      {
-				swap(v, j, j + 1);
-			}
-		}
-	}
-	return v;
-}
-
-vector<Pokemon> bubbleAltura(vector<Pokemon> &v)
-{
-	for (int i = v.size() - 1; i > 0; i--)
-  {
-		for (int j = 0; j < i; j++)
-    {
-			if (v[j].alturaPokemon > v[j + 1].alturaPokemon)
-      {
-				swap(v, j, j + 1);
-			}
-		}
-	}
-	return v;
-}
-
-vector<Pokemon> bubblePeso(vector<Pokemon> &v)
-{
-	for (int i = v.size() - 1; i > 0; i--)
-  {
-		for (int j = 0; j < i; j++)
-    {
-			if (v[j].pesoPokemon > v[j + 1].pesoPokemon)
-      {
-				swap(v, j, j + 1);
-			}
-		}
-	}
-	return v;
-}
-
-void busq(vector<Pokemon> &v, string tipo) {
-  ofstream myfilein ("datos_pokedex.txt");
-	for (int i = 0; i < v.size(); i++) {
-    if (myfilein.is_open())
-    {
-      if(v[i].tipoPokemon.find(tipo)!= string::npos)
-      {
-          myfilein<<"---------------------------"<<endl;
-          myfilein<<"No. "<<v[i].numeroPokemon<<" "<<v[i].nombrePokemon<<endl;
-          myfilein<<"Type"<<endl;
-          myfilein<<"\t\t"<<v[i].tipoPokemon<<endl;
-          myfilein<<"Weight"<<" .......... "<<v[i].pesoPokemon<<" Kg"<<endl;
-          myfilein<<"Height"<<" .......... "<<v[i].alturaPokemon<<" Mts"<<endl;
-          myfilein<<"---------------------------"<<endl;
-      }
-    }
-  }
-	myfilein.close();
-}
 int numeroPokemon;
 string nombrePokemon;
 string tipoPokemon;
 float alturaPokemon;
 float pesoPokemon;
-
-vector<Pokemon> list_pokemon;
-vector<Pokemon> list_pokemon_bubble;
-
-List<Pokemon> lista;
-
 
 ofstream myfilein ("datos_pokedex.txt");
 int main() 
@@ -162,7 +42,7 @@ int main()
       string tipoPokemon = v[4];
 
       Pokemon pokemon(stoi(numeroPokemon), nombrePokemon, tipoPokemon,stof(alturaPokemon), stof(pesoPokemon));
-      list_pokemon.push_back(pokemon);
+      vector_pokemon.push_back(pokemon);
     }
     myfileout.close();
   }
@@ -197,16 +77,16 @@ int main()
    switch(opcion)
    {
      case 1:
-      for(int i=0; i<list_pokemon.size();i++)
+      for(int i=0; i<vector_pokemon.size();i++)
       {
         if (myfilein.is_open())
         {
           myfilein<<"---------------------------"<<endl;
-          myfilein<<"No. "<<list_pokemon[i].numeroPokemon<<" "<<list_pokemon[i].nombrePokemon<<endl;
+          myfilein<<"No. "<<vector_pokemon[i].numeroPokemon<<" "<<vector_pokemon[i].nombrePokemon<<endl;
           myfilein<<"Type"<<endl;
-          myfilein<<"\t\t"<<list_pokemon[i].tipoPokemon<<endl;
-          myfilein<<"Weight"<<" .......... "<<list_pokemon[i].pesoPokemon<<" Kg"<<endl;
-          myfilein<<"Height"<<" .......... "<<list_pokemon[i].alturaPokemon<<" Mts"<<endl;
+          myfilein<<"\t\t"<<vector_pokemon[i].tipoPokemon<<endl;
+          myfilein<<"Weight"<<" .......... "<<vector_pokemon[i].pesoPokemon<<" Kg"<<endl;
+          myfilein<<"Height"<<" .......... "<<vector_pokemon[i].alturaPokemon<<" Mts"<<endl;
           myfilein<<"---------------------------"<<endl;
         }
       }
@@ -230,17 +110,17 @@ int main()
       switch(opcioncaso2)
       {
         case 1:
-          list_pokemon_bubble = bubbleNumero(list_pokemon);
-          for(int i=0; i<list_pokemon_bubble.size();i++)
+          vector_pokemon_bubble = bubbleNumero(vector_pokemon);
+          for(int i=0; i<vector_pokemon_bubble.size();i++)
           {
             if (myfilein.is_open())
             {
               myfilein<<"---------------------------"<<endl;
-              myfilein<<"No. "<<list_pokemon_bubble[i].numeroPokemon<<" "<<list_pokemon_bubble[i].nombrePokemon<<endl;
+              myfilein<<"No. "<<vector_pokemon_bubble[i].numeroPokemon<<" "<<vector_pokemon_bubble[i].nombrePokemon<<endl;
               myfilein<<"Type"<<endl;
-              myfilein<<"\t\t"<<list_pokemon_bubble[i].tipoPokemon<<endl;
-              myfilein<<"Weight"<<" .......... "<<list_pokemon_bubble[i].pesoPokemon<<" Kg"<<endl;
-              myfilein<<"Height"<<" .......... "<<list_pokemon_bubble[i].alturaPokemon<<" Mts"<<endl;
+              myfilein<<"\t\t"<<vector_pokemon_bubble[i].tipoPokemon<<endl;
+              myfilein<<"Weight"<<" .......... "<<vector_pokemon_bubble[i].pesoPokemon<<" Kg"<<endl;
+              myfilein<<"Height"<<" .......... "<<vector_pokemon_bubble[i].alturaPokemon<<" Mts"<<endl;
               myfilein<<"---------------------------"<<endl;
             }
           }
@@ -256,17 +136,17 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;   
           break;
         case 2:
-          list_pokemon_bubble = bubbleNombre(list_pokemon);
-          for(int i=0; i<list_pokemon_bubble.size();i++)
+          vector_pokemon_bubble = bubbleNombre(vector_pokemon);
+          for(int i=0; i<vector_pokemon_bubble.size();i++)
           {
             if (myfilein.is_open())
             {
               myfilein<<"---------------------------"<<endl;
-              myfilein<<"No. "<<list_pokemon_bubble[i].numeroPokemon<<" "<<list_pokemon_bubble[i].nombrePokemon<<endl;
+              myfilein<<"No. "<<vector_pokemon_bubble[i].numeroPokemon<<" "<<vector_pokemon_bubble[i].nombrePokemon<<endl;
               myfilein<<"Type"<<endl;
-              myfilein<<"\t\t"<<list_pokemon_bubble[i].tipoPokemon<<endl;
-              myfilein<<"Weight"<<" .......... "<<list_pokemon_bubble[i].pesoPokemon<<" Kg"<<endl;
-              myfilein<<"Height"<<" .......... "<<list_pokemon_bubble[i].alturaPokemon<<" Mts"<<endl;
+              myfilein<<"\t\t"<<vector_pokemon_bubble[i].tipoPokemon<<endl;
+              myfilein<<"Weight"<<" .......... "<<vector_pokemon_bubble[i].pesoPokemon<<" Kg"<<endl;
+              myfilein<<"Height"<<" .......... "<<vector_pokemon_bubble[i].alturaPokemon<<" Mts"<<endl;
               myfilein<<"---------------------------"<<endl;
             }
           }
@@ -282,17 +162,17 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl; 
           break;
         case 3:
-          list_pokemon_bubble = bubbleTipo(list_pokemon);
-          for(int i=0; i<list_pokemon_bubble.size();i++)
+          vector_pokemon_bubble = bubbleTipo(vector_pokemon);
+          for(int i=0; i<vector_pokemon_bubble.size();i++)
           {
             if (myfilein.is_open())
             {
               myfilein<<"---------------------------"<<endl;
-              myfilein<<"No. "<<list_pokemon_bubble[i].numeroPokemon<<" "<<list_pokemon_bubble[i].nombrePokemon<<endl;
+              myfilein<<"No. "<<vector_pokemon_bubble[i].numeroPokemon<<" "<<vector_pokemon_bubble[i].nombrePokemon<<endl;
               myfilein<<"Type"<<endl;
-              myfilein<<"\t\t"<<list_pokemon_bubble[i].tipoPokemon<<endl;
-              myfilein<<"Weight"<<" .......... "<<list_pokemon_bubble[i].pesoPokemon<<" Kg"<<endl;
-              myfilein<<"Height"<<" .......... "<<list_pokemon_bubble[i].alturaPokemon<<" Mts"<<endl;
+              myfilein<<"\t\t"<<vector_pokemon_bubble[i].tipoPokemon<<endl;
+              myfilein<<"Weight"<<" .......... "<<vector_pokemon_bubble[i].pesoPokemon<<" Kg"<<endl;
+              myfilein<<"Height"<<" .......... "<<vector_pokemon_bubble[i].alturaPokemon<<" Mts"<<endl;
               myfilein<<"---------------------------"<<endl;
             }
           }
@@ -308,17 +188,17 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;     
           break;
         case 4:
-          list_pokemon_bubble = bubbleAltura(list_pokemon);
-          for(int i=0; i<list_pokemon_bubble.size();i++)
+          vector_pokemon_bubble = bubbleAltura(vector_pokemon);
+          for(int i=0; i<vector_pokemon_bubble.size();i++)
           {
             if (myfilein.is_open())
             {
               myfilein<<"---------------------------"<<endl;
-              myfilein<<"No. "<<list_pokemon_bubble[i].numeroPokemon<<" "<<list_pokemon_bubble[i].nombrePokemon<<endl;
+              myfilein<<"No. "<<vector_pokemon_bubble[i].numeroPokemon<<" "<<vector_pokemon_bubble[i].nombrePokemon<<endl;
               myfilein<<"Type"<<endl;
-              myfilein<<"\t\t"<<list_pokemon_bubble[i].tipoPokemon<<endl;
-              myfilein<<"Weight"<<" .......... "<<list_pokemon_bubble[i].pesoPokemon<<" Kg"<<endl;
-              myfilein<<"Height"<<" .......... "<<list_pokemon_bubble[i].alturaPokemon<<" Mts"<<endl;
+              myfilein<<"\t\t"<<vector_pokemon_bubble[i].tipoPokemon<<endl;
+              myfilein<<"Weight"<<" .......... "<<vector_pokemon_bubble[i].pesoPokemon<<" Kg"<<endl;
+              myfilein<<"Height"<<" .......... "<<vector_pokemon_bubble[i].alturaPokemon<<" Mts"<<endl;
               myfilein<<"---------------------------"<<endl;
             }
           }
@@ -334,17 +214,17 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;     
           break;
         case 5:
-          list_pokemon_bubble = bubblePeso(list_pokemon);
-          for(int i=0; i<list_pokemon_bubble.size();i++)
+          vector_pokemon_bubble = bubblePeso(vector_pokemon);
+          for(int i=0; i<vector_pokemon_bubble.size();i++)
           {
             if (myfilein.is_open())
             {
               myfilein<<"---------------------------"<<endl;
-              myfilein<<"No. "<<list_pokemon_bubble[i].numeroPokemon<<" "<<list_pokemon_bubble[i].nombrePokemon<<endl;
+              myfilein<<"No. "<<vector_pokemon_bubble[i].numeroPokemon<<" "<<vector_pokemon_bubble[i].nombrePokemon<<endl;
               myfilein<<"Type"<<endl;
-              myfilein<<"\t\t"<<list_pokemon_bubble[i].tipoPokemon<<endl;
-              myfilein<<"Weight"<<" .......... "<<list_pokemon_bubble[i].pesoPokemon<<" Kg"<<endl;
-              myfilein<<"Height"<<" .......... "<<list_pokemon_bubble[i].alturaPokemon<<" Mts"<<endl;
+              myfilein<<"\t\t"<<vector_pokemon_bubble[i].tipoPokemon<<endl;
+              myfilein<<"Weight"<<" .......... "<<vector_pokemon_bubble[i].pesoPokemon<<" Kg"<<endl;
+              myfilein<<"Height"<<" .......... "<<vector_pokemon_bubble[i].alturaPokemon<<" Mts"<<endl;
               myfilein<<"---------------------------"<<endl;
             }
           }
@@ -382,7 +262,7 @@ int main()
       switch(opcioncaso3)
       {
         case 1:
-          busq(list_pokemon, "Agua");
+          busq(vector_pokemon, "Agua");
           cout<<"\n";
           cout<<"Imprimiendo datos"<<endl;
   
@@ -395,7 +275,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 2:
-          busq(list_pokemon, "Fuego");
+          busq(vector_pokemon, "Fuego");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -407,7 +287,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 3:
-          busq(list_pokemon, "Planta");
+          busq(vector_pokemon, "Planta");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -419,7 +299,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 4:
-          busq(list_pokemon, "Bicho");
+          busq(vector_pokemon, "Bicho");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -431,7 +311,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 5:
-          busq(list_pokemon, "Normal");
+          busq(vector_pokemon, "Normal");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -443,7 +323,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 6:
-          busq(list_pokemon, "Veneno");
+          busq(vector_pokemon, "Veneno");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -455,7 +335,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 7:
-          busq(list_pokemon, "Electrico");
+          busq(vector_pokemon, "Electrico");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -467,7 +347,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 8:
-          busq(list_pokemon, "Tierra");
+          busq(vector_pokemon, "Tierra");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -479,7 +359,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 9:
-          busq(list_pokemon, "Hada");
+          busq(vector_pokemon, "Hada");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -491,7 +371,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 10:
-          busq(list_pokemon, "Lucha");
+          busq(vector_pokemon, "Lucha");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -503,7 +383,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 11:
-          busq(list_pokemon, "Psiquico");
+          busq(vector_pokemon, "Psiquico");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -515,7 +395,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 12:
-          busq(list_pokemon, "Roca");
+          busq(vector_pokemon, "Roca");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -527,7 +407,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 13:
-          busq(list_pokemon, "Fantasma");
+          busq(vector_pokemon, "Fantasma");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -539,7 +419,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 14:
-         busq(list_pokemon, "Hielo");
+         busq(vector_pokemon, "Hielo");
          cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
@@ -551,7 +431,7 @@ int main()
           cout<<"Datos impresos satisfactoriamente en datos_pokedex.txt"<<endl;
           break;
         case 15:
-          busq(list_pokemon, "Dragon");
+          busq(vector_pokemon, "Dragon");
           cout<<"Imprimiendo datos"<<endl;
   
           cout<<"."<<endl;
