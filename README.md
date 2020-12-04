@@ -1,7 +1,7 @@
 # TC1031_Actividades_Integrales
 
 ## Correcciones en actividades
-----------------------------------------------
+
 ### Actividad integral 2
 
 - Se elmino la funcion sleep junto con las librerias
